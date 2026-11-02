@@ -8,7 +8,6 @@ Pequenos estúdios de beleza dependem só do Instagram e perdem clientes que que
 ## Funcionalidades
 - Página única, responsiva e rápida (sem build, HTML/CSS/JS puro)
 - Serviços expansíveis com preços
-- Galeria com visualização ampliada
 - Menu mobile e animações de entrada
 - Botões de WhatsApp configuráveis em `config.js` (com aviso quando o número não está definido)
 
@@ -22,4 +21,4 @@ python -m http.server 4173
 Acesse `http://localhost:4173`.
 
 ## Imagens
-As fotos originais da cliente não foram incluídas neste repositório público; no lugar há imagens ilustrativas (`assets/placeholder.svg`). Para usar fotos próprias, substitua os caminhos em `index.html`.
+As fotos originais da cliente não foram incluídas neste repositório público. O site fica sem fotos e sem galeria até ter fotos reais do estúdio, com autorização. A seção "Fotos dos trabalhos" (`#trabalhos` em `index.html`) avisa isso por enquanto.

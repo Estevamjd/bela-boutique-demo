@@ -45,3 +45,7 @@ h1,h2,h3,p{margin-top:0}.hero h1,.section h2,.closing h2{font-family:var(--serif
 .button,.text-link,.underlined-link,.desktop-nav,.header-cta,.service-list li,.service-list.priced li,.service-bottom-link,.floating-cta{font-size:.875rem}
 .service-bottom-link{flex-wrap:wrap}
 @media(max-width:520px){.floating-cta{bottom:calc(12px + env(safe-area-inset-bottom))}}
+.hero-menu{margin:0;padding:2.5rem 3rem;list-style:none;display:flex;flex-direction:column;justify-content:flex-end;background:var(--plum);color:var(--white)}.hero-menu li+li{margin-top:.4rem}.hero-menu a{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;padding:.35rem 0;transition:color .2s}.hero-menu a:hover,.hero-menu a:focus-visible{color:#e7ccc5}.hero-menu span{font-family:var(--serif);font-size:clamp(2.4rem,3.6vw,3.6rem);letter-spacing:-.04em;line-height:1.05}.hero-menu small{font-size:.875rem;color:#e1ccc8;white-space:nowrap}.hero-stamp{margin:0;z-index:1}.hero-stamp span{text-transform:uppercase}
+.services-layout{grid-template-columns:1fr}.gallery-empty .gallery-header{margin-bottom:0}
+@media(max-width:520px){.hero-menu{padding:4.5rem 1.4rem 1.5rem}.hero-menu span{font-size:clamp(1.9rem,8.5vw,2.4rem)}.hero-menu small{font-size:.8rem}}
+@media(max-width:780px){.hero-visual{height:auto}.hero-menu{position:relative;inset:auto;margin-left:9%;padding-top:5.5rem}}

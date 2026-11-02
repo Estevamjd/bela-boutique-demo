@@ -24,21 +24,6 @@ groups.forEach((group) => group.addEventListener('toggle', () => {
   if (group.open) groups.filter((other) => other !== group).forEach((other) => { other.open = false; });
 }));
 
-const lightbox = document.querySelector('.lightbox');
-const lightboxImage = lightbox.querySelector('img');
-document.querySelectorAll('.gallery-item').forEach((item) => item.addEventListener('click', () => {
-  lightboxImage.src = item.dataset.image;
-  lightboxImage.alt = item.dataset.alt;
-  lightbox.showModal();
-  document.body.classList.add('no-scroll');
-}));
-lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
-lightbox.addEventListener('click', (event) => { if (event.target === lightbox) lightbox.close(); });
-lightbox.addEventListener('close', () => {
-  document.body.classList.remove('no-scroll');
-  lightboxImage.removeAttribute('src');
-});
-
 const contactDialog = document.querySelector('.contact-dialog');
 contactDialog.querySelector('.contact-close').addEventListener('click', () => contactDialog.close());
 contactDialog.querySelector('.contact-ok').addEventListener('click', () => contactDialog.close());
