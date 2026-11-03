@@ -24,20 +24,30 @@ groups.forEach((group) => group.addEventListener('toggle', () => {
   if (group.open) groups.filter((other) => other !== group).forEach((other) => { other.open = false; });
 }));
 
-const lightbox = document.querySelector('.lightbox');
-const lightboxImage = lightbox.querySelector('img');
-document.querySelectorAll('.gallery-item').forEach((item) => item.addEventListener('click', () => {
-  lightboxImage.src = item.dataset.image;
-  lightboxImage.alt = item.dataset.alt;
-  lightbox.showModal();
-  document.body.classList.add('no-scroll');
-}));
-lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
-lightbox.addEventListener('click', (event) => { if (event.target === lightbox) lightbox.close(); });
-lightbox.addEventListener('close', () => {
-  document.body.classList.remove('no-scroll');
-  lightboxImage.removeAttribute('src');
-});
+// Esconde o botão flutuante enquanto ele estiver por cima de um cabeçalho do acordeão,
+// para que o toque no "+" nunca vá parar no WhatsApp.
+const floatingCta = document.querySelector('.floating-cta');
+const summaries = groups.map((group) => group.querySelector('summary'));
+let tuckFrame = 0;
+function updateFloatingCta() {
+  tuckFrame = 0;
+  const cta = floatingCta.getBoundingClientRect();
+  const gap = 8;
+  const covers = summaries.some((summary) => {
+    const box = summary.getBoundingClientRect();
+    return box.left < cta.right + gap && box.right > cta.left - gap && box.top < cta.bottom + gap && box.bottom > cta.top - gap;
+  });
+  floatingCta.classList.toggle('is-tucked', covers);
+}
+function queueFloatingCta() {
+  if (!tuckFrame) tuckFrame = requestAnimationFrame(updateFloatingCta);
+}
+window.addEventListener('scroll', queueFloatingCta, { passive: true });
+window.addEventListener('resize', queueFloatingCta);
+groups.forEach((group) => group.addEventListener('toggle', queueFloatingCta));
+document.addEventListener('transitionend', queueFloatingCta);
+document.addEventListener('animationend', queueFloatingCta);
+updateFloatingCta();
 
 const contactDialog = document.querySelector('.contact-dialog');
 contactDialog.querySelector('.contact-close').addEventListener('click', () => contactDialog.close());
