@@ -49,3 +49,4 @@ h1,h2,h3,p{margin-top:0}.hero h1,.section h2,.closing h2{font-family:var(--serif
 .services-layout{grid-template-columns:1fr}.gallery-empty .gallery-header{margin-bottom:0}
 @media(max-width:520px){.hero-menu{padding:4.5rem 1.4rem 1.5rem}.hero-menu span{font-size:clamp(1.9rem,8.5vw,2.4rem)}.hero-menu small{font-size:.8rem}}
 @media(max-width:780px){.hero-visual{height:auto}.hero-menu{position:relative;inset:auto;margin-left:9%;padding-top:5.5rem}}
+.floating-cta{transition:transform .2s,background .2s,opacity .2s,visibility .2s}.floating-cta.is-tucked{opacity:0;visibility:hidden;pointer-events:none}
